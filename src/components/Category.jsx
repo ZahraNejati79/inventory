@@ -6,10 +6,20 @@ const Categorys = () => {
     title: "",
     description: "",
   });
-  const addNewCategoryHandler = ({ target }) => {
+  const [categories, setCategories] = useState([]);
+  const onChangeHandlerCategoryFormData = ({ target }) => {
     const { name, value } = target;
     setCategoryFormData({ ...categoryFormData, [name]: value });
   };
+  const addNewCategoryFormDataHandler = (e) => {
+    const newCategory = {
+      ...categoryFormData,
+      createdAt: new Date().toISOString(),
+    };
+    setCategories((prevState) => [...categories, newCategory]);
+    setCategoryFormData({ title: "", description: "" });
+  };
+
   return (
     <section>
       <div className={`${isShow ? "hidden" : ""}`}>
@@ -25,7 +35,7 @@ const Categorys = () => {
               </label>
               <input
                 value={categoryFormData.title}
-                onChange={addNewCategoryHandler}
+                onChange={onChangeHandlerCategoryFormData}
                 className="border-slate-500 w-1/2 rounded-lg "
                 type="text"
                 id="title"
@@ -38,7 +48,7 @@ const Categorys = () => {
               </label>
               <textarea
                 value={categoryFormData.description}
-                onChange={addNewCategoryHandler}
+                onChange={onChangeHandlerCategoryFormData}
                 className="w-full h-2/3 rounded-lg "
                 type="text"
                 id="description"
@@ -47,7 +57,10 @@ const Categorys = () => {
             </div>
           </form>
           <div className="p-2 flex justify-between items-center gap-1 ">
-            <button className="w-2/3 border-slate-300 rounded-lg py-2 bg-slate-400 mr-1">
+            <button
+              onClick={addNewCategoryFormDataHandler}
+              className="w-2/3 border-slate-300 rounded-lg py-2 bg-slate-400 mr-1"
+            >
               اضافه کردن
             </button>
             <button
