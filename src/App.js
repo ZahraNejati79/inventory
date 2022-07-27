@@ -1,9 +1,11 @@
+import { useState } from "react";
 import "./App.css";
 import Categorys from "./components/Category";
 import NavBar from "./components/NavBar";
 import Products from "./components/Prosucts";
 
 const App = () => {
+  const [categories, setCategories] = useState([]);
   return (
     <div
       dir="rtl"
@@ -11,8 +13,8 @@ const App = () => {
     >
       <NavBar />
       <div className="container max-w-screen-sm mx-auto p-4 h-1/2 ">
-        <Categorys />
-        <Products />
+        <Categorys setCategories={setCategories} />
+        <Products options={categories} />
       </div>
     </div>
   );

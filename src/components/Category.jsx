@@ -1,22 +1,24 @@
 import { useState } from "react";
 
-const Categorys = () => {
+const Categorys = ({ setCategories }) => {
   const [isShow, setIsShow] = useState(false);
   const [categoryFormData, setCategoryFormData] = useState({
     title: "",
     description: "",
   });
-  const [categories, setCategories] = useState([]);
+
   const onChangeHandlerCategoryFormData = ({ target }) => {
     const { name, value } = target;
     setCategoryFormData({ ...categoryFormData, [name]: value });
   };
   const addNewCategoryFormDataHandler = (e) => {
+    e.preventDefault();
     const newCategory = {
       ...categoryFormData,
       createdAt: new Date().toISOString(),
+      id: new Date().getTime(),
     };
-    setCategories((prevState) => [...categories, newCategory]);
+    setCategories((prevState) => [...prevState, newCategory]);
     setCategoryFormData({ title: "", description: "" });
   };
 
@@ -31,7 +33,7 @@ const Categorys = () => {
           >
             <div className="flex-col">
               <label className="block mb-2" htmlFor="title">
-                عنوان محصول
+                عنوان دسته
               </label>
               <input
                 value={categoryFormData.title}

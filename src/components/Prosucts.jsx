@@ -1,10 +1,30 @@
 import { useState } from "react";
+import Select from "react-select";
 
-const Products = () => {
-  const [isShow, setIsShow] = useState(false);
+const Products = ({ options }) => {
+  const [productFormData, setProductFormData] = useState({
+    title: "",
+    quantity: 0,
+    categoryId: "",
+  });
+  const [productList, setProductList] = useState([]);
+  const changeProductDataHandler = (e) => {
+    const { name, value } = e.target;
+    setProductFormData({ ...productFormData, [name]: value });
+  };
+
+  const addNewProductDataHAndler = (e) => {
+    e.preventDefault();
+    const newProduct = {
+      ...productFormData,
+      createdAt: new Date().toISOString(),
+      id: new Date().getTime(),
+    };
+    setProductFormData({ title: "", quantity: 0, categoryId: "" });
+  };
   return (
     <section>
-      <div className={`${isShow ? "hidden" : ""}`}>
+      <div>
         <span className="text-slate-400 font-bold ">اضافه کردن محصول جدید</span>
         <div className="flex-col bg-slate-500 h-full rounded-lg pb-2 mt-2">
           <form
@@ -17,6 +37,8 @@ const Products = () => {
               </label>
               <input
                 className="border-slate-500 w-1/2 rounded-lg "
+                value={productFormData.title}
+                onChange={changeProductDataHandler}
                 type="text"
                 id="title"
                 name="title"
@@ -28,36 +50,42 @@ const Products = () => {
               </label>
               <input
                 className="border-slate-500 w-1/2 rounded-lg "
+                value={productFormData.quantity}
+                onChange={changeProductDataHandler}
                 type="number"
                 id="quantity"
                 name="quantity"
               />
             </div>
             <div className="flex-col">
-              <label className="block mb-2" htmlFor="category">
-                دسته
-              </label>
+              <span className="block">عنوان دسته</span>
               <select
-                className="border-slate-500 w-1/2 rounded-lg "
-                type="text"
-                id="category"
-                name="category"
-              />
+                value={productFormData.categoryId}
+                onChange={changeProductDataHandler}
+                name="categoryId"
+                className="border-slate-500 w-1/2 rounded-lg text-slate-500"
+              >
+                <option value="">انتخاب عنوان دسته</option>
+                {options.map((category) => {
+                  return (
+                    <option key={category.id} value={category.id}>
+                      {category.title}
+                    </option>
+                  );
+                })}
+              </select>
             </div>
           </form>
           <div className="p-2 flex justify-between items-center gap-1 w-full">
-            <button className="w-full border-slate-300 rounded-lg py-2 bg-slate-400 mr-1">
+            <button
+              onClick={addNewProductDataHAndler}
+              className="w-full border-slate-300 rounded-lg py-2 bg-slate-400 mr-1"
+            >
               اضافه کردن
             </button>
           </div>
         </div>
       </div>
-      <button
-        onClick={() => setIsShow(!isShow)}
-        className={`text-slate-500 mt-2 ${isShow ? "" : "hidden"} `}
-      >
-        اضافه کردن عنوان جدید؟
-      </button>
     </section>
   );
 };
