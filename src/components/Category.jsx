@@ -70,7 +70,7 @@ const Categorys = () => {
               }}
               className="w-2/3 border-slate-300 rounded-lg py-2 bg-slate-400 ml-1"
             >
-              بازگشت
+              بستن
             </button>
           </div>
         </div>
