@@ -2,6 +2,14 @@ import { useState } from "react";
 
 const Categorys = () => {
   const [isShow, setIsShow] = useState(false);
+  const [categoryFormData, setCategoryFormData] = useState({
+    title: "",
+    description: "",
+  });
+  const addNewCategoryHandler = ({ target }) => {
+    const { name, value } = target;
+    setCategoryFormData({ ...categoryFormData, [name]: value });
+  };
   return (
     <section>
       <div className={`${isShow ? "hidden" : ""}`}>
@@ -16,6 +24,8 @@ const Categorys = () => {
                 عنوان محصول
               </label>
               <input
+                value={categoryFormData.title}
+                onChange={addNewCategoryHandler}
                 className="border-slate-500 w-1/2 rounded-lg "
                 type="text"
                 id="title"
@@ -26,7 +36,9 @@ const Categorys = () => {
               <label className="block mb-2" htmlFor="description">
                 توضیح
               </label>
-              <input
+              <textarea
+                value={categoryFormData.description}
+                onChange={addNewCategoryHandler}
                 className="w-full h-2/3 rounded-lg "
                 type="text"
                 id="description"
