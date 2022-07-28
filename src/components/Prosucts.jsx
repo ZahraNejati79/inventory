@@ -65,7 +65,9 @@ const Products = ({ options, setProductList }) => {
                 name="categoryId"
                 className="border-slate-500 w-1/2 rounded-lg text-slate-500 bg-slate-800"
               >
-                <option value="">انتخاب عنوان دسته</option>
+                <option disabled selected hidden value="">
+                  انتخاب عنوان دسته
+                </option>
                 {options.map((category) => {
                   return (
                     <option key={category.id} value={category.id}>
