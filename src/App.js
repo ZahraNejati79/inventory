@@ -17,7 +17,11 @@ const App = () => {
       <div className="container max-w-screen-sm mx-auto p-4 h-1/2 ">
         <Categorys setCategories={setCategories} />
         <Products options={categories} setProductList={setProductList} />
-        <ProductList productList={productList} />
+        <ProductList
+          productList={productList}
+          setProductList={setProductList}
+          categories={categories}
+        />
       </div>
     </div>
   );
