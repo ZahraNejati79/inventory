@@ -1,7 +1,7 @@
 import { HiOutlineTrash } from "react-icons/hi";
 const ProductList = ({ productList, setProductList, categories }) => {
   const deleteOneProductHandler = (id) => {
-    const filteredProducts = productList.filter((product) => product.id != id);
+    const filteredProducts = productList.filter((product) => product.id !== id);
     setProductList(filteredProducts);
     console.log(productList);
   };
@@ -10,10 +10,11 @@ const ProductList = ({ productList, setProductList, categories }) => {
   };
   return (
     <div className="flex-col rounded-lg pb-2 mt-2 px-4 ">
+      <h2 className="text-slate-400 font-bold ">لیست محصولات</h2>
       {productList.map((product) => {
         return (
           <div
-            className="text-slate-400 flex justify-between items-center border-solid border-b-2 py-2 border-slate-700"
+            className="overflow-x-auto text-slate-400 flex justify-between items-center border-solid border-b-2 py-2 border-slate-700"
             key={product.id}
           >
             <div>{product.title}</div>

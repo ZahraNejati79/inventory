@@ -25,33 +25,33 @@ const Categorys = ({ setCategories }) => {
   return (
     <section>
       <div className={`${isShow ? "hidden" : ""}`}>
-        <span className="text-slate-400 font-bold ">اضافه کردن عنوان جدید</span>
-        <div className="flex-col bg-slate-500 h-full rounded-lg pb-2 mt-2">
+        <h2 className="text-slate-400 font-bold ">اضافه کردن دسته جدید</h2>
+        <div className="flex-col border-solid border-2  border-slate-500  h-full rounded-lg pb-2 mt-2">
           <form
             action="submit"
             className="flex-col item-start justify-center h-5/6 p-2"
           >
-            <div className="flex-col">
+            <div className="flex-col text-slate-400">
               <label className="block mb-2" htmlFor="title">
                 عنوان دسته
               </label>
               <input
                 value={categoryFormData.title}
                 onChange={onChangeHandlerCategoryFormData}
-                className="border-slate-500 w-1/2 rounded-lg "
+                className="bg-slate-800 text-slate-400 border-slate-500 w-1/2 rounded-lg "
                 type="text"
                 id="title"
                 name="title"
               />
             </div>
-            <div className="flex-col h-1/2 ">
+            <div className="flex-col h-1/2  text-slate-400">
               <label className="block mb-2" htmlFor="description">
                 توضیح
               </label>
               <textarea
                 value={categoryFormData.description}
                 onChange={onChangeHandlerCategoryFormData}
-                className="w-full h-2/3 rounded-lg "
+                className="bg-slate-800 text-slate-400 w-full h-2/3 rounded-lg "
                 type="text"
                 id="description"
                 name="description"
@@ -70,7 +70,7 @@ const Categorys = ({ setCategories }) => {
                 e.preventDefault();
                 setIsShow(true);
               }}
-              className="w-2/3 border-slate-300 rounded-lg py-2 bg-slate-400 ml-1"
+              className="w-2/3 text-slate-400 border-solid border-2  border-slate-500  rounded-lg py-2 ml-1"
             >
               بستن
             </button>
