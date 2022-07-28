@@ -1,13 +1,13 @@
 import { useState } from "react";
 import Select from "react-select";
 
-const Products = ({ options }) => {
+const Products = ({ options, setProductList }) => {
   const [productFormData, setProductFormData] = useState({
     title: "",
     quantity: 0,
     categoryId: "",
   });
-  const [productList, setProductList] = useState([]);
+
   const changeProductDataHandler = (e) => {
     const { name, value } = e.target;
     setProductFormData({ ...productFormData, [name]: value });
@@ -20,6 +20,7 @@ const Products = ({ options }) => {
       createdAt: new Date().toISOString(),
       id: new Date().getTime(),
     };
+    setProductList((prevState) => [...prevState, newProduct]);
     setProductFormData({ title: "", quantity: 0, categoryId: "" });
   };
   return (
