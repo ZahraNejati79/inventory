@@ -10,15 +10,17 @@ const App = () => {
   const [categories, setCategories] = useState([]);
   const [productList, setProductList] = useState([]);
   const [filterProducts, setFilterProducts] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [search, setSearch] = useState("");
   const [sort, setSort] = useState("");
 
   useEffect(() => {
     let result = productList;
     result = filterSearchTitle(result);
+    result = filterCategoryHandler(result);
     result = sortDateHandler(result);
     setFilterProducts(result);
-  }, [productList, sort, search]);
+  }, [productList, sort, search, selectedCategory]);
 
   useEffect(() => {
     const savedProducts = JSON.parse(localStorage.getItem("products")) || [];
@@ -47,19 +49,29 @@ const App = () => {
     return array.filter((p) => p.title.toLowerCase().includes(search));
   };
   const sortHandler = (e) => {
-    console.log(sort);
     setSort(e.target.value);
   };
+
   const sortDateHandler = (array) => {
     let sortedProducts = [...array];
     return sortedProducts.sort((a, b) => {
       if (sort === "latest") {
-        return new Date(a.createdAt) > new Date(b.createdAt) ? -1 : 1;
-      } else if (sort === "earliest") {
         return new Date(a.createdAt) > new Date(b.createdAt) ? 1 : -1;
+      } else if (sort === "earliest") {
+        return new Date(a.createdAt) > new Date(b.createdAt) ? -1 : 1;
       }
     });
   };
+
+  const filterCategoryHandler = (array) => {
+    if (!selectedCategory) return array;
+    return array.filter((p) => p.categoryId === selectedCategory);
+  };
+
+  const onCategoryFileter = (e) => {
+    setSelectedCategory(e.target.value);
+  };
+
   return (
     <div dir="rtl" className="w-screen min-h-screen container bg-slate-800 ">
       <NavBar />
@@ -69,8 +81,11 @@ const App = () => {
         <Filter
           sort={sort}
           search={search}
+          selectedCategory={selectedCategory}
           onSearch={searchHandler}
           onSort={sortHandler}
+          onCategoryFileter={onCategoryFileter}
+          categories={categories}
         />
         <ProductList
           productList={filterProducts}
