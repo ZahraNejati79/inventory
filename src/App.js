@@ -20,6 +20,26 @@ const App = () => {
     setFilterProducts(result);
   }, [productList, sort, search]);
 
+  useEffect(() => {
+    const savedProducts = JSON.parse(localStorage.getItem("products")) || [];
+    const savedCatogories =
+      JSON.parse(localStorage.getItem("categories")) || [];
+    setProductList(savedProducts);
+    setCategories(savedCatogories);
+  }, []);
+
+  useEffect(() => {
+    if (productList.length) {
+      localStorage.setItem("products", JSON.stringify(productList));
+    }
+  }, [productList]);
+
+  useEffect(() => {
+    if (categories.length) {
+      localStorage.setItem("categories", JSON.stringify(categories));
+    }
+  }, [categories]);
+
   const searchHandler = (e) => {
     setSearch(e.target.value.trim().toLowerCase());
   };
