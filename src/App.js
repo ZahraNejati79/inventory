@@ -10,9 +10,35 @@ const App = () => {
   const [categories, setCategories] = useState([]);
   const [productList, setProductList] = useState([]);
   const [filterProducts, setFilterProducts] = useState([]);
+  const [search, setSearch] = useState("");
+  const [sort, setSort] = useState("");
+
   useEffect(() => {
-    setFilterProducts(productList);
-  }, [productList]);
+    let result = productList;
+    result = filterSearchTitle(result);
+    result = sortDateHandler(result);
+    setFilterProducts(result);
+  }, [productList, sort, search]);
+
+  const searchHandler = (e) => {
+    setSearch(e.target.value.trim().toLowerCase());
+  };
+  const filterSearchTitle = (array) => {
+    return array.filter((p) => p.title.toLowerCase().includes(search));
+  };
+  const sortHandler = (e) => {
+    setSort(e.target.value);
+  };
+  const sortDateHandler = (array) => {
+    let sortedProducts = [...array];
+    return sortedProducts.sort((a, b) => {
+      if (sort === "latest") {
+        return new Date(a.createdAt) > new Date(b.createdAt) ? -1 : 1;
+      } else if (sort === "earliest") {
+        return new Date(a.createdAt) > new Date(b.createdAt) ? 1 : -1;
+      }
+    });
+  };
   return (
     <div dir="rtl" className="w-screen min-h-screen container bg-slate-800 ">
       <NavBar />
@@ -20,9 +46,10 @@ const App = () => {
         <Categorys setCategories={setCategories} />
         <Products options={categories} setProductList={setProductList} />
         <Filter
-          products={productList}
-          filterProducts={filterProducts}
-          setFilterProducts={setFilterProducts}
+          sort={sort}
+          search={search}
+          onSearch={searchHandler}
+          onSort={sortHandler}
         />
         <ProductList
           productList={filterProducts}
