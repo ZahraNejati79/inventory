@@ -27,6 +27,7 @@ const App = () => {
     return array.filter((p) => p.title.toLowerCase().includes(search));
   };
   const sortHandler = (e) => {
+    console.log(sort);
     setSort(e.target.value);
   };
   const sortDateHandler = (array) => {

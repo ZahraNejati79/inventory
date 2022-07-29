@@ -19,7 +19,7 @@ const Filter = ({ sort, search, onSort, onSearch }) => {
         <div className="text-slate-400">مرتب سازی</div>
         <select
           value={sort}
-          onChange={(e) => onSort}
+          onChange={onSort}
           className="bg-slate-800 text-slate-400 border-slate-500 w-1/2 rounded-lg"
         >
           <option disabled selected hidden value="">
