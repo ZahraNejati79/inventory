@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import Categorys from "./components/Category";
 import Filter from "./components/Filter";
-import NavBar from "./components/NavBar";
 import ProductList from "./components/productList";
 import Products from "./components/Prosucts";
 
@@ -73,27 +74,33 @@ const App = () => {
   };
 
   return (
-    <div dir="rtl" className="w-screen min-h-screen container bg-slate-800 ">
-      <NavBar />
-      <div className="container max-w-screen-sm mx-auto p-4 h-1/2 ">
-        <Categorys setCategories={setCategories} />
-        <Products options={categories} setProductList={setProductList} />
-        <Filter
-          sort={sort}
-          search={search}
-          selectedCategory={selectedCategory}
-          onSearch={searchHandler}
-          onSort={sortHandler}
-          onCategoryFileter={onCategoryFileter}
-          categories={categories}
-        />
-        <ProductList
-          productList={filterProducts}
-          setProductList={setProductList}
-          categories={categories}
-        />
+    <>
+      <ToastContainer />
+      <div
+        dir="rtl"
+        className="container flex items-center justify-center dark:bg-slate-800 "
+      >
+        <div className="container lg:grid lg:grid-cols-2 lg:grid-rows-3 lg:gap-4 max-w-xl  md:max-w-7xl  p-4  ">
+          <Categorys setCategories={setCategories} />
+          <Products options={categories} setProductList={setProductList} />
+          <Filter
+            sort={sort}
+            search={search}
+            selectedCategory={selectedCategory}
+            onSearch={searchHandler}
+            onSort={sortHandler}
+            onCategoryFileter={onCategoryFileter}
+            categories={categories}
+          />
+          <ProductList
+            productList={filterProducts}
+            setProductList={setProductList}
+            categories={categories}
+          />
+          <ToastContainer />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

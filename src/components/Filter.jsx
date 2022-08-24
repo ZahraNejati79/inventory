@@ -23,7 +23,7 @@ const Filter = ({
           value={search}
         />
       </div>
-      <div className="flex justify-between items-center w-full">
+      <div className="flex justify-between items-center w-full mb-2">
         <div className="text-slate-400">مرتب سازی</div>
         <select
           value={sort}

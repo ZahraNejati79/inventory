@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Categorys = ({ setCategories }) => {
   const [isShow, setIsShow] = useState(false);
   const [categoryFormData, setCategoryFormData] = useState({
@@ -19,6 +20,7 @@ const Categorys = ({ setCategories }) => {
       id: new Date().getTime(),
     };
     setCategories((prevState) => [...prevState, newCategory]);
+    toast.success("با موفقیت اضافه شد");
     setCategoryFormData({ title: "", description: "" });
   };
 
@@ -38,7 +40,7 @@ const Categorys = ({ setCategories }) => {
               <input
                 value={categoryFormData.title}
                 onChange={onChangeHandlerCategoryFormData}
-                className="bg-slate-800 text-slate-400 border-slate-500 w-1/2 rounded-lg "
+                className="bg-slate-800 appearance-none focus:outline-none  focus:border-gray-500 text-slate-400 border-slate-500 w-1/2 rounded-lg "
                 type="text"
                 id="title"
                 name="title"

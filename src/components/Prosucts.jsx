@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const Products = ({ options, setProductList }) => {
   const [productFormData, setProductFormData] = useState({
     title: "",
@@ -21,6 +22,7 @@ const Products = ({ options, setProductList }) => {
     };
     setProductList((prevState) => [...prevState, newProduct]);
     setProductFormData({ title: "", quantity: 0, categoryId: "" });
+    toast.success("با موفقیت اضافه شد");
   };
   return (
     <section>
