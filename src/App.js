@@ -7,6 +7,7 @@ import Filter from "./components/Filter";
 import ProductList from "./components/productList";
 import HomePage from "./components/pages/HemePage";
 import ProductsPage from "./components/pages/ProductsPage";
+import AboutusPage from "./components/pages/Aboutus";
 const App = () => {
   const [categories, setCategories] = useState([]);
   const [productList, setProductList] = useState([]);
@@ -97,6 +98,7 @@ const App = () => {
               />
             }
           />
+          <Route path="/about" element={<AboutusPage />} />
         </Routes>
       </BrowserRouter>
       <ToastContainer />

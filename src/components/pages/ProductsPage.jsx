@@ -4,11 +4,13 @@ import ProductList from "../productList";
 const ProductsPage = ({ productList, setProductList, categories }) => {
   return (
     <Layout>
-      <ProductList
-        productList={productList}
-        setProductList={setProductList}
-        categories={categories}
-      />
+      <div className="flex items-center justify-center">
+        <ProductList
+          productList={productList}
+          setProductList={setProductList}
+          categories={categories}
+        />
+      </div>
     </Layout>
   );
 };
