@@ -6,6 +6,7 @@ import "./App.css";
 import Filter from "./components/Filter";
 import ProductList from "./components/productList";
 import HomePage from "./components/pages/HemePage";
+import ProductsPage from "./components/pages/ProductsPage";
 const App = () => {
   const [categories, setCategories] = useState([]);
   const [productList, setProductList] = useState([]);
@@ -86,15 +87,21 @@ const App = () => {
               />
             }
           />
+          <Route
+            path="/products"
+            element={
+              <ProductsPage
+                productList={filterProducts}
+                setProductList={setProductList}
+                categories={categories}
+              />
+            }
+          />
         </Routes>
       </BrowserRouter>
       <ToastContainer />
-      <div
-        dir="rtl"
-        className="container flex items-center justify-center dark:bg-slate-800 "
-      >
-        <div className="container lg:grid lg:grid-cols-2 lg:grid-rows-3 lg:gap-4 max-w-xl  md:max-w-7xl  p-4  ">
-          <Filter
+
+      {/* <Filter
             sort={sort}
             search={search}
             selectedCategory={selectedCategory}
@@ -103,13 +110,7 @@ const App = () => {
             onCategoryFileter={onCategoryFileter}
             categories={categories}
           />
-          <ProductList
-            productList={filterProducts}
-            setProductList={setProductList}
-            categories={categories}
-          />
-        </div>
-      </div>
+           */}
     </>
   );
 };

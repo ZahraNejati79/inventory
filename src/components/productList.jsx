@@ -1,4 +1,5 @@
 import { HiOutlineTrash } from "react-icons/hi";
+
 const ProductList = ({ productList, setProductList, categories }) => {
   const deleteOneProductHandler = (id) => {
     const filteredProducts = productList.filter((product) => product.id !== id);
@@ -8,17 +9,20 @@ const ProductList = ({ productList, setProductList, categories }) => {
   const findCategoryTitle = (categoryId) => {
     return categories.find((c) => c.id === parseInt(categoryId)).title;
   };
+
   return (
-    <div className="flex-col rounded-lg pb-2 mt-2 px-4 ">
-      <h2 className="text-slate-400 font-bold ">لیست محصولات</h2>
+    <div className="flex-col rounded-lg pb-2 mt-2 px-4">
+      <h2 className="text-slate-400  font-bold mb-10 text-right ">
+        لیست محصولات
+      </h2>
       {productList.map((product) => {
         return (
           <div
-            className="overflow-x-auto text-slate-400 flex justify-between items-center border-solid border-b-2 py-2 border-slate-700"
+            className="md:px-20 overflow-x-auto md:text-lg text-slate-400 flex justify-between items-center border-solid border-b-2 py-2 border-slate-700"
             key={product.id}
           >
             <div>{product.title}</div>
-            <div className="flex gap-x-4">
+            <div className="flex gap-x-4 md:gap-x-8 md:text-lg">
               <div>{findCategoryTitle(product.categoryId)}</div>
               <div>{product.quantity}</div>
               <div>
@@ -26,7 +30,7 @@ const ProductList = ({ productList, setProductList, categories }) => {
               </div>
               <button
                 onClick={() => deleteOneProductHandler(product.id)}
-                className="text-red-500 font-bold text-lg"
+                className="text-red-500 font-bold md:text-3xl"
               >
                 <HiOutlineTrash />
               </button>
