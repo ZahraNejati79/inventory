@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
-import Categorys from "./components/Category";
 import Filter from "./components/Filter";
 import ProductList from "./components/productList";
-import Products from "./components/Prosucts";
-
+import HomePage from "./components/pages/HemePage";
 const App = () => {
   const [categories, setCategories] = useState([]);
   const [productList, setProductList] = useState([]);
@@ -75,14 +74,26 @@ const App = () => {
 
   return (
     <>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <HomePage
+                setCategories={setCategories}
+                options={categories}
+                setProductList={setProductList}
+              />
+            }
+          />
+        </Routes>
+      </BrowserRouter>
       <ToastContainer />
       <div
         dir="rtl"
         className="container flex items-center justify-center dark:bg-slate-800 "
       >
         <div className="container lg:grid lg:grid-cols-2 lg:grid-rows-3 lg:gap-4 max-w-xl  md:max-w-7xl  p-4  ">
-          <Categorys setCategories={setCategories} />
-          <Products options={categories} setProductList={setProductList} />
           <Filter
             sort={sort}
             search={search}
@@ -97,7 +108,6 @@ const App = () => {
             setProductList={setProductList}
             categories={categories}
           />
-          <ToastContainer />
         </div>
       </div>
     </>
