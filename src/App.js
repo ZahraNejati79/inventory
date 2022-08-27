@@ -8,6 +8,7 @@ import ProductList from "./components/productList";
 import HomePage from "./components/pages/HemePage";
 import ProductsPage from "./components/pages/ProductsPage";
 import AboutusPage from "./components/pages/Aboutus";
+import Search from "./components/Search";
 const App = () => {
   const [categories, setCategories] = useState([]);
   const [productList, setProductList] = useState([]);
@@ -102,12 +103,11 @@ const App = () => {
         </Routes>
       </BrowserRouter>
       <ToastContainer />
-
       {/* <Filter
             sort={sort}
-            search={search}
+            
             selectedCategory={selectedCategory}
-            onSearch={searchHandler}
+          
             onSort={sortHandler}
             onCategoryFileter={onCategoryFileter}
             categories={categories}
