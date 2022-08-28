@@ -9,8 +9,15 @@ import HomePage from "./components/pages/HemePage";
 import ProductsPage from "./components/pages/ProductsPage";
 import AboutusPage from "./components/pages/Aboutus";
 import Search from "./components/Search";
+import CategoryProvider, {
+  useCategories,
+  useCategoriesAction,
+} from "./Context/CategoryProvider";
 const App = () => {
-  const [categories, setCategories] = useState([]);
+  // const [categories, setCategories] = useState([]);
+  const categories = useCategories();
+  const setCategories = useCategoriesAction();
+
   const [productList, setProductList] = useState([]);
   const [filterProducts, setFilterProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -27,10 +34,10 @@ const App = () => {
 
   useEffect(() => {
     const savedProducts = JSON.parse(localStorage.getItem("products")) || [];
-    const savedCatogories =
-      JSON.parse(localStorage.getItem("categories")) || [];
+    // const savedCatogories =
+    //   JSON.parse(localStorage.getItem("categories")) || [];
     setProductList(savedProducts);
-    setCategories(savedCatogories);
+    // setCategories(savedCatogories);
   }, []);
 
   useEffect(() => {
@@ -39,11 +46,11 @@ const App = () => {
     }
   }, [productList]);
 
-  useEffect(() => {
-    if (categories.length) {
-      localStorage.setItem("categories", JSON.stringify(categories));
-    }
-  }, [categories]);
+  // useEffect(() => {
+  //   if (categories.length) {
+  //     localStorage.setItem("categories", JSON.stringify(categories));
+  //   }
+  // }, [categories]);
 
   const searchHandler = (e) => {
     setSearch(e.target.value.trim().toLowerCase());
@@ -78,36 +85,43 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <HomePage
-                setCategories={setCategories}
-                options={categories}
-                setProductList={setProductList}
-              />
-            }
-          />
-          <Route
-            path="/products"
-            element={
-              <ProductsPage
-                productList={filterProducts}
-                setProductList={setProductList}
-                categories={categories}
-              />
-            }
-          />
-          <Route path="/about" element={<AboutusPage />} />
-        </Routes>
+        <CategoryProvider>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <CategoryProvider>
+                  <HomePage
+                    // setCategories={setCategories}
+                    // options={categories}
+                    setProductList={setProductList}
+                  />
+                </CategoryProvider>
+              }
+            />
+            <Route
+              path="/products"
+              element={
+                <CategoryProvider>
+                  <ProductsPage
+                    productList={filterProducts}
+                    setProductList={setProductList}
+                    // categories={categories}
+                  />
+                </CategoryProvider>
+              }
+            />
+            <Route path="/about" element={<AboutusPage />} />
+          </Routes>
+        </CategoryProvider>
       </BrowserRouter>
       <ToastContainer />
+
       {/* <Filter
             sort={sort}
-            
+            search={search}
             selectedCategory={selectedCategory}
-          
+            onSearch={searchHandler}
             onSort={sortHandler}
             onCategoryFileter={onCategoryFileter}
             categories={categories}

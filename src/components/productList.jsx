@@ -1,6 +1,8 @@
 import { HiOutlineTrash } from "react-icons/hi";
+import { useCategories } from "../Context/CategoryProvider";
 
-const ProductList = ({ productList, setProductList, categories }) => {
+const ProductList = ({ productList, setProductList }) => {
+  const categories = useCategories();
   const deleteOneProductHandler = (id) => {
     const filteredProducts = productList.filter((product) => product.id !== id);
     setProductList(filteredProducts);

@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const Products = ({ options, setProductList }) => {
+import { useCategories } from "../Context/CategoryProvider";
+const Products = ({ setProductList }) => {
+  const options = useCategories();
   const [productFormData, setProductFormData] = useState({
     title: "",
     quantity: 0,
