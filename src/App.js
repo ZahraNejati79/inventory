@@ -83,7 +83,7 @@ const App = () => {
             element={
               <HomePage
                 setCategories={setCategories}
-                options={categories}
+                option={categories}
                 setProductList={setProductList}
               />
             }
@@ -108,17 +108,6 @@ const App = () => {
         </Routes>
       </BrowserRouter>
       <ToastContainer />
-
-      {/* <Filter
-            sort={sort}
-            search={search}
-            selectedCategory={selectedCategory}
-            onSearch={searchHandler}
-            onSort={sortHandler}
-            onCategoryFileter={onCategoryFileter}
-            categories={categories}
-          />
-           */}
     </>
   );
 };

@@ -20,11 +20,11 @@ const ProductList = ({ productList, setProductList, categories }) => {
       {productList.map((product) => {
         return (
           <div
-            className="md:px-20 overflow-x-auto lg:text-2xl md:text-xl text-slate-400 flex justify-between items-center border-solid border-b-2 py-2 border-slate-700"
+            className="md:px-20 overflow-x-auto  md:text-xl text-slate-400 flex justify-between items-center border-solid border-b-2 py-2 border-slate-700"
             key={product.id}
           >
             <div>{product.title}</div>
-            <div className="flex gap-x-4 md:gap-x-8 lg:text-2xl md:text-xl">
+            <div className="flex gap-x-4 md:gap-x-8  md:text-xl">
               <div>{findCategoryTitle(product.categoryId)}</div>
               <div>{product.quantity}</div>
               <div>
