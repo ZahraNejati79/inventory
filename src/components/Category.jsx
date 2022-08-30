@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useCategoriesAction } from "../Context/CategoryProvider";
-const Categorys = () => {
-  const setCategories = useCategoriesAction();
+
+const Categorys = ({ setCategories }) => {
   const [isShow, setIsShow] = useState(false);
   const [categoryFormData, setCategoryFormData] = useState({
     title: "",

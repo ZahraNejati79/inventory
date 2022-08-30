@@ -1,8 +1,6 @@
 import { HiOutlineTrash } from "react-icons/hi";
-import { useCategories } from "../Context/CategoryProvider";
 
-const ProductList = ({ productList, setProductList }) => {
-  const categories = useCategories();
+const ProductList = ({ productList, setProductList, categories }) => {
   const deleteOneProductHandler = (id) => {
     const filteredProducts = productList.filter((product) => product.id !== id);
     setProductList(filteredProducts);
@@ -14,9 +12,11 @@ const ProductList = ({ productList, setProductList }) => {
 
   return (
     <div className="flex-col rounded-lg pb-2 mt-2 px-4 w-full lg:w-5/6">
-      <h2 className="text-slate-400  text-xl font-bold mb-10 text-right ">
-        لیست محصولات
-      </h2>
+      <div>
+        <h2 className="text-slate-400  text-xl font-bold mb-10 text-right ">
+          لیست محصولات
+        </h2>
+      </div>
       {productList.map((product) => {
         return (
           <div

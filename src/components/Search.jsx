@@ -1,10 +1,6 @@
 import { useState } from "react";
 
-const Search = () => {
-  const [search, setSearch] = useState("");
-  const searchHandler = (e) => {
-    setSearch(e.target.value.trim().toLowerCase());
-  };
+const Search = ({ search, searchHandler }) => {
   return (
     <div className="flex justify-between items-center w-full mb-2 ">
       <input

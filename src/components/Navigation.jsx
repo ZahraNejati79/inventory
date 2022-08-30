@@ -7,11 +7,7 @@ const Navigation = () => {
         <div className="font-bold italic md:text-xl from-neutral-600 mr-20">
           INVENTORY
         </div>
-        <div className="flex items-center md:text-lg justify-between w-full ">
-          <div className="flex items-center justify-center  w-1/2">
-            <Search />
-            {/* search={search} onSearch={searchHandler} */}
-          </div>
+        <div className="flex items-center md:text-lg justify-between">
           <ul className="flex items-center gap-x-4 ">
             <li>
               <Link
