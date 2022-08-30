@@ -7,8 +7,10 @@ import "./App.css";
 import HomePage from "./components/pages/HemePage";
 import ProductsPage from "./components/pages/ProductsPage";
 import AboutusPage from "./components/pages/Aboutus";
+import useDarkMode from "./Hook/useDarkMode";
 
 const App = () => {
+  useDarkMode();
   const [categories, setCategories] = useState([]);
   const [productList, setProductList] = useState([]);
   const [filterProducts, setFilterProducts] = useState([]);
