@@ -15,7 +15,7 @@ const ProductsPage = ({
 }) => {
   return (
     <Layout>
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center bg-gray-100 dark:bg-slate-800">
         <Filter
           search={search}
           onSearch={onSearch}

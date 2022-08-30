@@ -1,6 +1,6 @@
 const Filter = ({
   search,
-  searchHandler,
+
   sort,
   onCategoryFileter,
   selectedCategory,
@@ -21,11 +21,11 @@ const Filter = ({
       </div>
       <div>
         <div className="flex justify-between items-center w-full mb-2">
-          <div className="text-slate-400">مرتب سازی</div>
+          <div className="text-gray-900 dark:text-slate-400">مرتب سازی</div>
           <select
             value={sort}
             onChange={onSort}
-            className="bg-slate-800 text-slate-400 md:text-lg  text-sm border-slate-500 w-1/2 rounded-lg"
+            className="bg-white dark:bg-slate-800 text-gray-900 dark:text-slate-400 md:text-lg  text-sm border-slate-500 w-1/2 rounded-lg"
           >
             <option disabled selected hidden value="">
               قدیم یا جدید
@@ -35,11 +35,11 @@ const Filter = ({
           </select>
         </div>
         <div className="flex justify-between items-center w-full">
-          <div className="text-slate-400">فیلتر دسته ها</div>
+          <div className="text-gray-900 dark:text-slate-400">فیلتر دسته ها</div>
           <select
             value={selectedCategory}
             onChange={onCategoryFileter}
-            className="bg-slate-800 text-slate-400 md:text-lg text-sm border-slate-500 w-1/2 rounded-lg"
+            className="bg-white dark:bg-slate-800 text-gray-900 dark:text-slate-400 md:text-lg text-sm border-slate-500 w-1/2 rounded-lg"
           >
             <option selected value="">
               همه

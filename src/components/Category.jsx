@@ -28,33 +28,35 @@ const Categorys = ({ setCategories }) => {
   return (
     <section>
       <div className={`${isShow ? "hidden" : ""}`}>
-        <h2 className="text-slate-400 font-bold ">اضافه کردن دسته جدید</h2>
-        <div className="flex-col border-solid border-2  border-slate-500  h-full rounded-lg pb-2 mt-2">
+        <h2 className="text-gray-900 dark:text-slate-400 font-bold ">
+          اضافه کردن دسته جدید
+        </h2>
+        <div className="flex-col border-solid border-2  border-slate-500  h-full rounded-lg pb-2 mt-2 bg-white dark:bg-slate-800">
           <form
             action="submit"
             className="flex-col item-start justify-center h-5/6 p-2"
           >
-            <div className="flex-col text-slate-400">
+            <div className="flex-col text-gray-900 dark:text-slate-400">
               <label className="block mb-2" htmlFor="title">
                 عنوان دسته
               </label>
               <input
                 value={categoryFormData.title}
                 onChange={onChangeHandlerCategoryFormData}
-                className="bg-slate-800 appearance-none focus:outline-none  focus:border-gray-500 text-slate-400 border-slate-500 w-1/2 rounded-lg "
+                className="dark:bg-slate-800 bg-white appearance-none focus:outline-none  focus:border-gray-500 text-gray-900 dark:text-slate-400 border-slate-500 w-1/2 rounded-lg "
                 type="text"
                 id="title"
                 name="title"
               />
             </div>
-            <div className="flex-col h-1/2  text-slate-400">
+            <div className="flex-col h-1/2  text-gray-900 dark:text-slate-400">
               <label className="block mb-2" htmlFor="description">
                 توضیح
               </label>
               <textarea
                 value={categoryFormData.description}
                 onChange={onChangeHandlerCategoryFormData}
-                className="bg-slate-800 text-slate-400 w-full h-2/3 rounded-lg "
+                className="dark:bg-slate-800 bg-white text-gray-900 dark:text-slate-400 w-full h-2/3 rounded-lg "
                 type="text"
                 id="description"
                 name="description"
@@ -73,7 +75,7 @@ const Categorys = ({ setCategories }) => {
                 e.preventDefault();
                 setIsShow(true);
               }}
-              className="w-2/3 text-slate-400 border-solid border-2  border-slate-500  rounded-lg py-2 ml-1"
+              className="w-2/3 text-gray-900 dark:text-slate-400 border-solid border-2  border-slate-200 hover:border-slate-500 dark:border-slate-500  rounded-lg py-2 ml-1"
             >
               بستن
             </button>

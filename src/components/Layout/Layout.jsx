@@ -4,7 +4,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Navigation />
-      <div>{children}</div>
+      <div className="bg-gray-100 dark:bg-slate-800 ">{children}</div>
     </>
   );
 };
