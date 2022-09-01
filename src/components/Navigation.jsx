@@ -20,7 +20,7 @@ const Navigation = () => {
           </div>
         </div>
         <div className="flex items-center md:text-lg justify-between">
-          <ul className="flex items-center gap-x-4 ">
+          <ul className="md:flex md:items-center gap-x-4  ">
             <li>
               <Link
                 className="p-4 mx-2 hover:text-gray-400 rounded-md"

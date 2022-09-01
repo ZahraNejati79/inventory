@@ -13,7 +13,7 @@ const Filter = ({
       <div className="flex justify-between items-center w-full mb-2 ">
         <input
           onChange={onSearch}
-          className=" text-right w-full dark:bg-slate-500 dark:text-white rounded-lg placeholder:text-gray-300  border-2 border-gray-400 focus:border-gray-600 focus:border-transparent focus:ring-0 hover:border-2 hover:border-gray-400"
+          className=" text-right w-full dark:bg-slate-700 dark:text-white rounded-lg placeholder:text-gray-300 placeholder:dark:text-gray-500 border-2 border-gray-400 dark:border-slate-500 focus:border-gray-600 focus:border-transparent focus:ring-0 hover:border-2 hover:border-gray-400"
           type="text"
           placeholder=". . . . .جستوجو"
           value={search}
@@ -21,11 +21,11 @@ const Filter = ({
       </div>
       <div>
         <div className="flex justify-between items-center w-full mb-2">
-          <div className="text-gray-900 dark:text-slate-400">مرتب سازی</div>
+          <div className="text-gray-900  dark:text-slate-400">مرتب سازی</div>
           <select
             value={sort}
             onChange={onSort}
-            className="bg-white dark:bg-slate-800 text-gray-900 dark:text-slate-400 md:text-lg  text-sm border-slate-500 w-1/2 rounded-lg"
+            className="bg-white dark:bg-slate-800 text-gray-900 dark:text-slate-400 md:text-lg  text-sm appearance-none border-slate-200 dark:border-slate-600  focus:border-transparent focus:ring-2 focus:ring-slate-200 dark:focus:ring-slate-500  w-1/2 rounded-lg"
           >
             <option disabled selected hidden value="">
               قدیم یا جدید
@@ -39,7 +39,7 @@ const Filter = ({
           <select
             value={selectedCategory}
             onChange={onCategoryFileter}
-            className="bg-white dark:bg-slate-800 text-gray-900 dark:text-slate-400 md:text-lg text-sm border-slate-500 w-1/2 rounded-lg"
+            className="bg-white dark:bg-slate-800 text-gray-900 dark:text-slate-400 md:text-lg text-sm appearance-none border-slate-200 dark:border-slate-600  focus:border-transparent focus:ring-2 focus:ring-slate-200 dark:focus:ring-slate-500  w-1/2 rounded-lg"
           >
             <option selected value="">
               همه

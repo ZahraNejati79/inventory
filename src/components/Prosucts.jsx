@@ -31,17 +31,17 @@ const Products = ({ setProductList, options }) => {
         <span className="text-gray-900 dark:text-slate-400 font-bold ">
           اضافه کردن محصول جدید
         </span>
-        <div className="flex-col border-solid border-2  border-slate-500 h-full rounded-lg pb-2 mt-2 bg-white dark:bg-slate-800">
+        <div className="flex-col shadow-lg dark:border dark:border-slate-600 h-full rounded-lg pb-2 mt-6 bg-white dark:bg-slate-800">
           <form
             action="submit"
-            className="flex-col item-start justify-center h-5/6 p-2"
+            className="flex-col item-start dark:border-slate-700 justify-center h-5/6 p-2"
           >
             <div className="flex-col mb-4 text-gray-900 dark:text-slate-400 ">
               <label className="block mb-2" htmlFor="title">
                 عنوان
               </label>
               <input
-                className="border-slate-500 w-1/2 rounded-lg dark:bg-slate-800 bg-white"
+                className="appearance-none border-slate-200 dark:border-slate-600  focus:border-transparent focus:ring-2 focus:ring-slate-200 dark:focus:ring-slate-500  w-1/2 rounded-lg dark:bg-slate-800 bg-white"
                 value={productFormData.title}
                 onChange={changeProductDataHandler}
                 type="text"
@@ -57,7 +57,7 @@ const Products = ({ setProductList, options }) => {
                 تعداد
               </label>
               <input
-                className="border-slate-500 w-1/2 rounded-lg dark:bg-slate-800 bg-white"
+                className="appearance-none border-slate-200 dark:border-slate-600  focus:border-transparent focus:ring-2 focus:ring-slate-200 dark:focus:ring-slate-500 w-1/2 rounded-lg dark:bg-slate-800 bg-white"
                 value={productFormData.quantity}
                 onChange={changeProductDataHandler}
                 type="number"
@@ -71,7 +71,7 @@ const Products = ({ setProductList, options }) => {
                 value={productFormData.categoryId}
                 onChange={changeProductDataHandler}
                 name="categoryId"
-                className="border-slate-500 w-1/2 rounded-lg text-slate-500 dark:bg-slate-800 bg-white"
+                className="appearance-none border-slate-200 dark:border-slate-600  focus:border-transparent focus:ring-2 focus:ring-slate-200 dark:focus:ring-slate-500 w-1/2 rounded-lg text-slate-500 dark:bg-slate-800 bg-white"
               >
                 <option disabled selected hidden value="">
                   انتخاب عنوان دسته

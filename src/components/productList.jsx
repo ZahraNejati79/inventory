@@ -13,7 +13,7 @@ const ProductList = ({ productList, setProductList, categories }) => {
   return (
     <div className="flex-col rounded-lg pb-2 mt-2 px-4 w-full lg:w-5/6">
       <div>
-        <h2 className="text-gray-900 dark:text-slate-400  text-xl font-bold mb-10 text-right ">
+        <h2 className="text-gray-900 dark:text-slate-400 text-lg md:text-xl font-bold mb-10 text-right ">
           لیست محصولات
         </h2>
       </div>
