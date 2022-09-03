@@ -11,16 +11,16 @@ const ProductList = ({ productList, setProductList, categories }) => {
   };
 
   return (
-    <div className="flex-col rounded-lg pb-2 mt-2 px-4 w-full lg:w-5/6">
+    <div className="flex-col rounded-lg pb-2 px-4 w-full lg:w-5/6 mt-8">
       <div>
-        <h2 className="text-gray-900 dark:text-slate-400 text-lg md:text-xl font-bold mb-10 text-right ">
+        <h2 className="text-gray-900 dark:text-slate-400 text-sm md:text-xl font-bold mb-10 text-right ">
           لیست محصولات
         </h2>
       </div>
       {productList.map((product) => {
         return (
           <div
-            className="md:px-20 overflow-x-auto  md:text-xl text-gray-900 dark:text-slate-400 flex justify-between items-center border-solid border-b-2 py-2 border-slate-400 dark:border-slate-700"
+            className="md:px-20 overflow-x-auto text-sm  md:text-xl text-gray-900 dark:text-slate-400 flex justify-between items-center border-solid border-b-2 py-2 border-slate-400 dark:border-slate-700"
             key={product.id}
           >
             <div>{product.title}</div>

@@ -89,7 +89,7 @@ const Products = ({ setProductList, options }) => {
           <div className="p-2 flex justify-between items-center gap-1 w-full">
             <button
               onClick={addNewProductDataHAndler}
-              className="w-full border-slate-300 rounded-lg py-2 bg-slate-400 mr-1"
+              className="w-full border-slate-300 rounded-lg py-2 dark:bg-slate-400 bg-gray-500 text-white dark:text-black mr-1"
             >
               اضافه کردن
             </button>
