@@ -26,7 +26,7 @@ const Products = ({ setProductList, options }) => {
     toast.success("با موفقیت اضافه شد");
   };
   return (
-    <section>
+    <section className="mt-8 md:mt-0">
       <div>
         <span className="text-gray-900 dark:text-slate-400 font-bold ">
           اضافه کردن محصول جدید
