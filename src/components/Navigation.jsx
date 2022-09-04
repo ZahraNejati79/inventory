@@ -58,7 +58,7 @@ const Navigation = () => {
               {showContactUs ? (
                 <ul className="text-base z-50 absolute right-0  list-none text-right rounded shadow-lg mt-1 bg-white dark:bg-slate-500">
                   <li className="hover:bg-slate-100 dark:hover:bg-slate-400  cursor-pointer py-2 px-8  block w-full whitespace-nowrap  ">
-                    <Link to="/about"> درباره ما</Link>
+                    <div> درباره ما</div>
                   </li>
                   <li className="hover:bg-slate-100 dark:hover:bg-slate-400  cursor-pointer py-2 px-8  block w-full whitespace-nowrap  ">
                     کانال تلگرام
@@ -135,7 +135,7 @@ const Navigation = () => {
                     {showContactUs ? (
                       <ul className="flex-col  w-1/2 px-4">
                         <li className="rounded-lg  hover:text-slate-400 dark:hover:bg-slate-400  cursor-pointer py-2 px-8  block w-full whitespace-nowrap  ">
-                          <Link to="/about"> درباره ما</Link>
+                          <div> درباره ما</div>
                         </li>
                         <li className="rounded-lg  hover:text-slate-400 dark:hover:bg-slate-400  cursor-pointer py-2 px-8  block w-full whitespace-nowrap  ">
                           کانال تلگرام
